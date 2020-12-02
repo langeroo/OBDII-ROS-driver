@@ -3,8 +3,7 @@ import time
 import rospy
 from std_msgs.msg import Float64
 
-
-rospy.init_node('OBDII-ROS-driver', anonymous=True)
+rospy.init_node('obd2Driver')
 
 pubrpm = rospy.Publisher('rpm', Float64, queue_size=10)
 pubspeed = rospy.Publisher('speed', Float64, queue_size=10)
@@ -16,7 +15,6 @@ pubthrotact = rospy.Publisher('throttle_act', Float64, queue_size=10)
 pubengine = rospy.Publisher('engine_load', Float64, queue_size=10)
 pubpressure = rospy.Publisher('pressure', Float64, queue_size=10)
 pubfuel = rospy.Publisher('fuel', Float64, queue_size=10)
-
 
 def new_rpm(v):
     value = float(str(v).split(':')[-1].split(' ')[0])
